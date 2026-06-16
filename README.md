@@ -1,5 +1,10 @@
 # Parcora PHP
 
+[![CI](https://github.com/parcora-eu/parcora-php/actions/workflows/ci.yml/badge.svg)](https://github.com/parcora-eu/parcora-php/actions/workflows/ci.yml)
+[![Latest Version](https://img.shields.io/packagist/v/parcora/parcora-php.svg)](https://packagist.org/packages/parcora/parcora-php)
+[![PHP Version](https://img.shields.io/packagist/php-v/parcora/parcora-php.svg)](https://packagist.org/packages/parcora/parcora-php)
+[![License](https://img.shields.io/packagist/l/parcora/parcora-php.svg)](LICENSE)
+
 The official PHP SDK for the [Parcora](https://parcora.eu) shipping API — one REST
 API for parcel delivery across Europe: shipments, bulk batches, labels, lockers,
 rates, tracking and webhooks.
