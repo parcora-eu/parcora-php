@@ -10,4 +10,7 @@ enum PickupPointType: string
     case Locker = 'locker';
     case PostOffice = 'post_office';
     case PickupPoint = 'pickup_point';
+
+    /** A point type this SDK version does not know. */
+    case Unknown = 'unknown';
 }

@@ -27,7 +27,7 @@ final class ShipmentBatchItem
         return new self(
             id: $d->string('id'),
             position: $d->int('position'),
-            status: BatchItemStatus::from($d->string('status')),
+            status: $d->enum('status', BatchItemStatus::class),
             shipment: $d->stringOrNull('shipment'),
             error: $error !== null ? BatchItemError::fromArray($error) : null,
         );

@@ -35,13 +35,13 @@ final class Carrier
         $d = Data::of($data);
 
         return new self(
-            carrier: CarrierCode::from($d->string('carrier')),
+            carrier: $d->enum('carrier', CarrierCode::class),
             name: $d->string('name'),
             connected: $d->bool('connected'),
             credentialSource: $d->stringOrNull('credential_source'),
             services: $d->listOfStrings('services'),
-            labelFormats: array_map(LabelFormat::from(...), $d->listOfStrings('label_formats')),
-            pickupPointTypes: array_map(PickupPointType::from(...), $d->listOfStrings('pickup_point_types')),
+            labelFormats: array_map(fn (string $v): LabelFormat => LabelFormat::tryFrom($v) ?? LabelFormat::Unknown, $d->listOfStrings('label_formats')),
+            pickupPointTypes: array_map(fn (string $v): PickupPointType => PickupPointType::tryFrom($v) ?? PickupPointType::Unknown, $d->listOfStrings('pickup_point_types')),
             capabilities: $d->listOfStrings('capabilities'),
         );
     }

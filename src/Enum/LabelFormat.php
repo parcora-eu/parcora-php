@@ -10,4 +10,7 @@ enum LabelFormat: string
     case PdfA4 = 'pdf_a4';
     case PdfLabel = 'pdf_label';
     case Zpl = 'zpl';
+
+    /** A label format this SDK version does not know. */
+    case Unknown = 'unknown';
 }

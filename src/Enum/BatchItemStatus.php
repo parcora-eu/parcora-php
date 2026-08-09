@@ -10,4 +10,7 @@ enum BatchItemStatus: string
     case Pending = 'pending';
     case Succeeded = 'succeeded';
     case Failed = 'failed';
+
+    /** A status this SDK version does not know. */
+    case Unknown = 'unknown';
 }

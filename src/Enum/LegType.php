@@ -10,4 +10,7 @@ enum LegType: string
     case Outbound = 'outbound';
     case Return = 'return';
     case Redelivery = 'redelivery';
+
+    /** A leg type this SDK version does not know. */
+    case Unknown = 'unknown';
 }

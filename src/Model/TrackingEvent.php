@@ -26,7 +26,7 @@ final class TrackingEvent
         $d = Data::of($data);
 
         return new self(
-            code: TrackingCode::from($d->string('code')),
+            code: $d->enum('code', TrackingCode::class),
             carrierCode: $d->stringOrNull('carrier_code'),
             source: $d->string('source'),
             description: $d->stringOrNull('description'),

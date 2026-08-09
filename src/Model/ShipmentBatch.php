@@ -30,7 +30,7 @@ final class ShipmentBatch
         return new self(
             id: $d->string('id'),
             livemode: $d->bool('livemode'),
-            status: BatchStatus::from($d->string('status')),
+            status: $d->enum('status', BatchStatus::class),
             counts: Counts::fromArray($d->array('counts')),
             metadata: $d->stringMap('metadata'),
             created: $d->dateTimeOrNull('created'),

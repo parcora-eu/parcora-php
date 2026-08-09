@@ -34,10 +34,10 @@ final class ShipmentLeg
 
         return new self(
             id: $d->string('id'),
-            type: LegType::from($d->string('type')),
-            carrier: CarrierCode::from($d->string('carrier')),
+            type: $d->enum('type', LegType::class),
+            carrier: $d->enum('carrier', CarrierCode::class),
             service: $d->string('service'),
-            status: ShipmentStatus::from($d->string('status')),
+            status: $d->enum('status', ShipmentStatus::class),
             trackingNumber: $d->stringOrNull('tracking_number'),
             parcels: array_map(Parcel::fromArray(...), $d->listOfObjects('parcels')),
             options: $d->objectOrNull('options') ?? [],

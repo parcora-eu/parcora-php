@@ -31,9 +31,9 @@ final class PickupPoint
 
         return new self(
             id: $d->string('id'),
-            carrier: CarrierCode::from($d->string('carrier')),
+            carrier: $d->enum('carrier', CarrierCode::class),
             externalId: $d->stringOrNull('external_id'),
-            type: PickupPointType::from($d->string('type')),
+            type: $d->enum('type', PickupPointType::class),
             name: $d->string('name'),
             address: Address::fromArray($d->objectOrNull('address') ?? []),
             latitude: $location !== null ? Data::of($location)->floatOrNull('latitude') : null,

@@ -139,6 +139,26 @@ final class Data
         return $out;
     }
 
+    /**
+     * A backed enum, tolerant of values this SDK version has never heard of.
+     *
+     * The API's vocabularies are open: carriers get added, statuses get refined,
+     * a new tracking milestone appears. Decoding those strictly would make every
+     * such addition a breaking change for anyone who has not upgraded — and not
+     * a small one, because the failure takes down the whole response rather than
+     * the one field. Unrecognised values become the enum's `Unknown` case.
+     *
+     * @template T of \BackedEnum
+     *
+     * @param  class-string<T>  $enum
+     * @return T
+     */
+    public function enum(string $key, string $enum): \BackedEnum
+    {
+        /** @var T */
+        return $enum::tryFrom($this->string($key)) ?? $enum::from('unknown');
+    }
+
     /** @return array<string, string> */
     public function stringMap(string $key): array
     {

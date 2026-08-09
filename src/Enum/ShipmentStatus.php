@@ -16,4 +16,7 @@ enum ShipmentStatus: string
     case Returned = 'returned';
     case Cancelled = 'cancelled';
     case Failed = 'failed';
+
+    /** A status this SDK version does not know. */
+    case Unknown = 'unknown';
 }

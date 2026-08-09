@@ -131,6 +131,23 @@ $page->first();
 foreach ($page->autoPaging() as $shipment) { /* all pages */ }
 ```
 
+## Enums and forward compatibility
+
+Parcora's vocabularies are open — carriers get added, a tracking milestone gets
+refined — so a response can carry a value your installed SDK version has never
+seen. Those decode to the enum's `Unknown` case rather than throwing, because
+decoding is all-or-nothing: a strict read would cost you the whole response over
+one unfamiliar string.
+
+```php
+$event->code;          // TrackingCode::Unknown for anything this version lacks
+$event->carrierCode;   // "TRT_SHIPMENT_REGISTERED" — the original always survives
+```
+
+Two things follow. Handle `Unknown` in your `match` arms — it is a normal value,
+not an error. And treat it as "not classified", not "failed": upgrading the SDK
+is what turns it into a real case.
+
 ## Errors
 
 Every API error throws a typed exception extending

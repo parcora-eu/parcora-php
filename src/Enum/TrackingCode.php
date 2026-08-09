@@ -16,4 +16,7 @@ enum TrackingCode: string
     case Returned = 'returned';
     case Exception = 'exception';
     case Cancelled = 'cancelled';
+
+    /** A milestone the gate has not classified. The raw carrier code on the event still carries the original. */
+    case Unknown = 'unknown';
 }

@@ -12,4 +12,7 @@ enum BatchStatus: string
     case Completed = 'completed';
     case CompletedWithErrors = 'completed_with_errors';
     case Failed = 'failed';
+
+    /** A status this SDK version does not know. */
+    case Unknown = 'unknown';
 }

@@ -25,7 +25,7 @@ final class Rate
         $d = Data::of($data);
 
         return new self(
-            carrier: CarrierCode::from($d->string('carrier')),
+            carrier: $d->enum('carrier', CarrierCode::class),
             service: $d->string('service'),
             amountMinor: $d->int('amount_minor'),
             currency: $d->string('currency'),
