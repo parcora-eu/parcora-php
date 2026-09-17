@@ -23,6 +23,8 @@ enum CarrierCode: string
     case LatvijasPasts = 'latvijas_pasts';
     case Gls = 'gls';
     case Helthjem = 'helthjem';
+    case LaPoste = 'laposte';
+    case Posti = 'posti';
 
     /** A carrier added to the gate after this SDK version. */
     case Unknown = 'unknown';

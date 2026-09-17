@@ -30,7 +30,7 @@ use Psr\Http\Message\StreamFactoryInterface;
  */
 final class Client
 {
-    public const VERSION = '0.1.0';
+    public const VERSION = '0.1.2';
 
     public const DEFAULT_BASE_URL = 'https://api.parcora.eu';
 
